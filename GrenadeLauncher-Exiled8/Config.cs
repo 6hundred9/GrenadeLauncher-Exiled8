@@ -7,7 +7,7 @@ namespace GrenadeLauncher_Exiled8
     public class Config : IConfig
     {
         public bool IsEnabled { get; set; } = true;
-        public bool Debug { get; set; } = false;
+        public bool Debug { get; set; } = true;
         
         public GrenadeLauncher grenadeLauncher { get; set; } = new GrenadeLauncher();
     }

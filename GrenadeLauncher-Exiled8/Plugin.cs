@@ -9,6 +9,7 @@ namespace GrenadeLauncher_Exiled8
         public override void OnEnabled()
         {
             Instance = this;
+            Config.grenadeLauncher.Type = ItemType.GunRevolver;
             Config.grenadeLauncher.Register();
             base.OnEnabled();
             
