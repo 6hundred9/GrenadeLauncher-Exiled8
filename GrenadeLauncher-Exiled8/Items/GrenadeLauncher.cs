@@ -20,6 +20,7 @@ namespace GrenadeLauncher_Exiled8.Items
         public override float Damage { get; set; } = 0f;
         public override string Description { get; set; } = "Shoot your opponents, opponent go kaboom, as shrimple as that";
         public override float Weight { get; set; } = 0.5f;
+        public override ItemType Type { get; set; } = ItemType.GunRevolver;
 
         public override SpawnProperties SpawnProperties { get; set; } = new()
         {
