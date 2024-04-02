@@ -10,6 +10,5 @@ namespace GrenadeLauncher_Exiled8
         public bool Debug { get; set; } = false;
         
         public GrenadeLauncher grenadeLauncher { get; set; } = new GrenadeLauncher();
-        
     }
 }
