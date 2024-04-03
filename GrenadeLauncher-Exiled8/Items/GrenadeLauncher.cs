@@ -1,16 +1,10 @@
 ﻿using System.Collections.Generic;
-using CustomPlayerEffects;
 using Exiled.API.Enums;
-using Exiled.API.Features;
 using Exiled.API.Features.Attributes;
 using Exiled.API.Features.Items;
-using Exiled.API.Features.Pickups.Projectiles;
-using Exiled.API.Features.Roles;
 using Exiled.API.Features.Spawn;
 using Exiled.CustomItems.API.Features;
 using Exiled.Events.EventArgs.Player;
-using InventorySystem.Items.Firearms.Attachments;
-using PlayerRoles;
 
 namespace GrenadeLauncher_Exiled8.Items
 {
@@ -20,6 +14,7 @@ namespace GrenadeLauncher_Exiled8.Items
         public override uint Id { get; set; } = 1;
         public override string Name { get; set; } = "Grenade Launcher";
         public override float Damage { get; set; } = 0f;
+        // ReSharper disable once StringLiteralTypo
         public override string Description { get; set; } = "Shoot your opponents, opponent go kaboom, as shrimple as that";
         public override float Weight { get; set; } = 0.5f;
         public override byte ClipSize { get; set; } = 1;
@@ -53,7 +48,7 @@ namespace GrenadeLauncher_Exiled8.Items
             if (!Check(ev.Firearm)) return;
             if (ev.Player.CurrentItem is Firearm firearm)
                 firearm.Ammo = 1;
-            var projectile = ev.Player.ThrowGrenade(ProjectileType.FragGrenade, true).Projectile;
+            var projectile = ev.Player.ThrowGrenade(ProjectileType.FragGrenade).Projectile;
             projectile.PickupTime = 10000000;
         }
 
