@@ -6,6 +6,8 @@ using Exiled.API.Features.Items;
 using Exiled.API.Features.Spawn;
 using Exiled.CustomItems.API.Features;
 using Exiled.Events.EventArgs.Player;
+using UnityEngine;
+using MEC;
 
 namespace GrenadeLauncher_Exiled8.Items
 {
@@ -73,7 +75,8 @@ namespace GrenadeLauncher_Exiled8.Items
                 foreach (Item item in ev.Player.Items.Where(i => i.Type == ItemType.GrenadeHE))
                 {
                     item.Destroy();
-                    ev.Firearm.Ammo += 1;
+                    Timing.CallDelayed(5f, () => ev.Firearm.Ammo += 1);
+                    break;
                 }
             }
             base.OnReloading(ev);
