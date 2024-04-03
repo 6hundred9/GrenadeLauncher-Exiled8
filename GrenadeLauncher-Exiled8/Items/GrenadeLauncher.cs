@@ -53,8 +53,7 @@ namespace GrenadeLauncher_Exiled8.Items
             if (!Check(ev.Firearm)) return;
             if (ev.Player.CurrentItem is Firearm firearm)
                 firearm.Ammo = 1;
-            Projectile projectile;
-            projectile = ev.Player.ThrowGrenade(ProjectileType.FragGrenade).Projectile;
+            var projectile = ev.Player.ThrowGrenade(ProjectileType.FragGrenade, true).Projectile;
             projectile.PickupTime = 10000000;
         }
 
