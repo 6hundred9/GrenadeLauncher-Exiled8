@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Exiled.API.Enums;
 using Exiled.API.Features.Attributes;
 using Exiled.API.Features.Items;
@@ -17,7 +18,7 @@ namespace GrenadeLauncher_Exiled8.Items
         // ReSharper disable once StringLiteralTypo
         public override string Description { get; set; } = "Shoot your opponents, opponent go kaboom, as shrimple as that";
         public override float Weight { get; set; } = 0.5f;
-        public override byte ClipSize { get; set; } = 1;
+        public override byte ClipSize { get; set; } = 8;
         public override ItemType Type { get; set; } = ItemType.GunRevolver;
         
 
@@ -34,23 +35,48 @@ namespace GrenadeLauncher_Exiled8.Items
         protected override void SubscribeEvents()
         {
             Exiled.Events.Handlers.Player.Shooting += OnShooting;
+            Exiled.Events.Handlers.Player.PickingUpItem += OnPickingUp;
+            Exiled.Events.Handlers.Player.ReloadingWeapon += OnReloading;
             base.SubscribeEvents();
         }
         protected override void UnsubscribeEvents()
         {
             Exiled.Events.Handlers.Player.Shooting -= OnShooting;
+            Exiled.Events.Handlers.Player.PickingUpItem -= OnPickingUp;
+            Exiled.Events.Handlers.Player.ReloadingWeapon -= OnReloading;
             base.UnsubscribeEvents();
+        }
+
+        protected override void OnPickingUp(PickingUpItemEventArgs ev)
+        {
+            if (ev.Player.HasItem(ItemType.GunRevolver) && ev.Pickup.Type == ItemType.GunRevolver)
+            {
+                ev.IsAllowed = false;
+            }
+            base.OnPickingUp(ev);
         }
 
 
         protected override void OnShooting(ShootingEventArgs ev)
         {
-            if (!Check(ev.Firearm)) return;
-            if (ev.Player.CurrentItem is Firearm firearm)
-                firearm.Ammo = 1;
-            var projectile = ev.Player.ThrowGrenade(ProjectileType.FragGrenade).Projectile;
-            projectile.PickupTime = 10000000;
+            if (!Check(ev.Firearm) && ev.Firearm.Type != ItemType.GunRevolver) return;
+            ev.Player.ThrowGrenade(ProjectileType.FragGrenade);
+            base.OnShooting(ev);
         }
 
+        protected override void OnReloading(ReloadingWeaponEventArgs ev)
+        {
+            if (!Check(ev.Firearm) && ev.Firearm.Type != ItemType.GunRevolver) return;
+            ev.IsAllowed = false;
+            if (ev.Player.HasItem(ItemType.GrenadeHE) && ev.Firearm.Ammo != 1)
+            {
+                foreach (Item item in ev.Player.Items.Where(i => i.Type == ItemType.GrenadeHE))
+                {
+                    item.Destroy();
+                    ev.Firearm.Ammo += 1;
+                }
+            }
+            base.OnReloading(ev);
+        }
     }
 }
