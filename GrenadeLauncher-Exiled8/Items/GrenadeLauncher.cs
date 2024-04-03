@@ -4,6 +4,7 @@ using Exiled.API.Enums;
 using Exiled.API.Features;
 using Exiled.API.Features.Attributes;
 using Exiled.API.Features.Items;
+using Exiled.API.Features.Pickups.Projectiles;
 using Exiled.API.Features.Roles;
 using Exiled.API.Features.Spawn;
 using Exiled.CustomItems.API.Features;
@@ -52,9 +53,9 @@ namespace GrenadeLauncher_Exiled8.Items
             if (!Check(ev.Firearm)) return;
             if (ev.Player.CurrentItem is Firearm firearm)
                 firearm.Ammo = 1;
-            ExplosiveGrenade grenade = (ExplosiveGrenade)Item.Create(ItemType.GrenadeHE);
-            grenade.FuseTime = 0.1f;
-            grenade.SpawnActive(ev.ShotPosition, ev.Player);
+            Projectile projectile;
+            projectile = ev.Player.ThrowGrenade(ProjectileType.FragGrenade).Projectile;
+            projectile.PickupTime = 10000000;
         }
 
     }
