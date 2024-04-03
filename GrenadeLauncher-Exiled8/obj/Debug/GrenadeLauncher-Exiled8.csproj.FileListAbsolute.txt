@@ -26,3 +26,11 @@ C:\Users\66hun\Documents\zKod\GrenadeLauncher-Exiled8\GrenadeLauncher-Exiled8\bi
 C:\Users\66hun\Documents\zKod\GrenadeLauncher-Exiled8\GrenadeLauncher-Exiled8\obj\Debug\GrenadeLauncher-Exiled8.csproj.CopyComplete
 C:\Users\66hun\Documents\zKod\GrenadeLauncher-Exiled8\GrenadeLauncher-Exiled8\obj\Debug\GrenadeLauncher_Exiled8.dll
 C:\Users\66hun\Documents\zKod\GrenadeLauncher-Exiled8\GrenadeLauncher-Exiled8\obj\Debug\GrenadeLauncher_Exiled8.pdb
+C:\Users\66hun\Documents\zKod\GrenadeLauncher-Exiled8\GrenadeLauncher-Exiled8\bin\Debug\Assembly-CSharp-firstpass.dll
+C:\Users\66hun\Documents\zKod\GrenadeLauncher-Exiled8\GrenadeLauncher-Exiled8\bin\Debug\UnityEngine.PhysicsModule.dll
+C:\Users\66hun\Documents\zKod\GrenadeLauncher-Exiled8\GrenadeLauncher-Exiled8\bin\Debug\UnityEngine.ParticleSystemModule.dll
+C:\Users\66hun\Documents\zKod\GrenadeLauncher-Exiled8\GrenadeLauncher-Exiled8\bin\Debug\UnityEngine.AudioModule.dll
+C:\Users\66hun\Documents\zKod\GrenadeLauncher-Exiled8\GrenadeLauncher-Exiled8\bin\Debug\UnityEngine.AnimationModule.dll
+C:\Users\66hun\Documents\zKod\GrenadeLauncher-Exiled8\GrenadeLauncher-Exiled8\bin\Debug\UnityEngine.TextRenderingModule.dll
+C:\Users\66hun\Documents\zKod\GrenadeLauncher-Exiled8\GrenadeLauncher-Exiled8\bin\Debug\UnityEngine.InputLegacyModule.dll
+C:\Users\66hun\Documents\zKod\GrenadeLauncher-Exiled8\GrenadeLauncher-Exiled8\bin\Debug\UnityEngine.IMGUIModule.dll
