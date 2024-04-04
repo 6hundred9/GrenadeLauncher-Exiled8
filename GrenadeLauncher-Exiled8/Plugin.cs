@@ -1,4 +1,5 @@
-﻿using Exiled.API.Features;
+﻿using System;
+using Exiled.API.Features;
 using Exiled.CustomItems.API;
 
 namespace GrenadeLauncher_Exiled8
@@ -6,6 +7,11 @@ namespace GrenadeLauncher_Exiled8
     public class Plugin : Plugin<Config>
     {
         public static Plugin Instance;
+        public override string Author { get; } = "6hundred9";
+        public override string Name { get; } = "Grenade Launcher";
+        public override string Prefix { get; } = "grnLauncher";
+        public override Version RequiredExiledVersion { get; } = new Version(8, 8, 1);
+
         public override void OnEnabled()
         {
             Instance = this;

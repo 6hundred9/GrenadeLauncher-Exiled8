@@ -8,6 +8,9 @@ using Exiled.CustomItems.API.Features;
 using Exiled.Events.EventArgs.Player;
 using UnityEngine;
 using MEC;
+using PluginAPI.Core;
+using Player = Exiled.API.Features.Player;
+using Server = Exiled.API.Features.Server;
 
 namespace GrenadeLauncher_Exiled8.Items
 {
